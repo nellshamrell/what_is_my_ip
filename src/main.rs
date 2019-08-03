@@ -13,6 +13,8 @@ fn main() {
     udp_method_lookup();
 }
 
+// Does not return external IP
+// Returns 127.0.0.1
 fn dns_lookup() {
     println!("Using the dns_lookup method");
 
@@ -23,6 +25,8 @@ fn dns_lookup() {
     println!("{:?}", ip_addr);
 }
 
+// Returns list of network interfaces on the box 
+// And associated information
 fn pnet_lookup() {
     println!("using pnet crate");
     
@@ -34,6 +38,7 @@ fn pnet_lookup() {
 static GOOGLE_DNS: &'static str = "8.8.8.8:53";
 
 // Based on https://github.com/habitat-sh/habitat/blob/4527c32e25d60d77ece99cb7ac8cd1182cb85279/components/core/src/util/sys.rs#L9-L16
+// Works, but requires ability to route to Google DNS
 fn udp_method_lookup() {
     println!("udp_method_lookup");
 
